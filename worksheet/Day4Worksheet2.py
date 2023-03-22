@@ -67,7 +67,13 @@ class TestSauce:
         sleep(5)
         testResult = driver.current_url == "https://www.saucedemo.com/inventory.html"
         print(f"TEST SONUCU : {testResult}")
-        sleep(10)
+        sleep(2)
+        listOfItems = driver.find_elements(By.CLASS_NAME, "inventory_item")
+        sleep(2)
+        countResult = len(listOfItems) == 6
+        print(f"Saucedemo sitesinde şu anda {len(listOfItems)} adet kurs var.")
+        print(f"COUNT SONUCU : {countResult}")
+        sleep(1000)
 
 testClass = TestSauce()
 #testClass.test_user()
